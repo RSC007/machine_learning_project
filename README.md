@@ -1,5 +1,8 @@
 # machine_learning_project
 
+>FileName: It's called `module`
+>FolderName: It's called `package`
+
 Following things are required.
 1. GIT-HUB
 2. Docker, Docker-HUB
@@ -58,7 +61,7 @@ To stop docker containers
 docker stop <container_id>
 ```
 
-
+> Note: following command may rise some error in windos. intead that command you can use this -> ` pip install -r requirements.txt ` 
 TO install all libraries which mentioned in requirements.txt
 ```
 python setup.py install

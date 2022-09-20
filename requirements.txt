@@ -3,3 +3,4 @@ gunicorn
 sklearn
 pandas
 numpy
+# -e .  # This is for our own package like here is "housing", We need to install these too. .(period) means current directory, it work in window only, not working in ubantu with custom install command. -e . is require in requirements.txt file, not in setup.py package.
