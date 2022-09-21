@@ -25,7 +25,9 @@ class HousingException(Exception):
         return error_message
 
     def __str__(self) -> str:
+        # when you print the class then current error will display
         return self.error_message
 
     def __repr__(self) -> str:
+        # we always write the code, how contructor call
         return HousingException.__name__.str()
