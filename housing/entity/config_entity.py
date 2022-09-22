@@ -16,3 +16,5 @@ ModelEvaluationConfig = namedtuple("ModelEvaluationConfig", ["model_evaluation_f
 
 
 ModelPusherConfig = namedtuple("ModelPusherConfig", ["export_dir_path"])
+
+TrainigPipelineConfig = namedtuple("TrainigPipelineConfig", ["artifact_dir"])
