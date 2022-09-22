@@ -66,3 +66,9 @@ TO install all libraries which mentioned in requirements.txt
 ```
 python setup.py install
 ```
+
+
+Intsall ipykernel to run .ipynb file
+```
+pip install ipykernel
+```
