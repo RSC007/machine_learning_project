@@ -2,8 +2,10 @@
 import logging
 import sys,os
 from housing.component.data_ingestion import DataIngestion
+from housing.component.data_validation import DataValidation
 
 from housing.config.configuration import Configuration
+from housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from housing.exception import HousingException
 
 
@@ -22,11 +24,17 @@ class Pipeline:
         except Exception as e:
             raise HousingException(e, sys) from e
 
+    def start_data_validation(self, data_ingestion_artifact: DataIngestionArtifact) -> DataValidationArtifact:
+        try:
+            data_validation = DataValidation(validation_config=self.config.get_data_validation_config(), data_ingestion_artifact=data_ingestion_artifact)
+            return data_validation.initiate_data_validation()
+        except Exception as e:
+            raise HousingException(e, sys) from e
+
     def run_pipeline(self):
         try:
             logging.info(f"{'-'*20} Pipeline start {'-'*20}")
             data_ingestion_artifact = self.start_data_ingestion()
-            logging.info(f"{'+'*40}")
-
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact)
         except Exception as e:
             raise HousingException(e,sys) from e
